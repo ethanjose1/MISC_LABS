@@ -1,7 +1,7 @@
 import requests
 
 
-# retrieves the data from a subreddit in the JSON format using a get request
+# retrieves data from a subreddit in the JSON format using a get request
 def getRedditStories(subreddit):
     url = f'https://www.reddit.com/r/{subreddit}.json'
     myheaders = {'User-Agent': 'ist256.lesson10.homework:v1.0 (by /u/edjose)'}
