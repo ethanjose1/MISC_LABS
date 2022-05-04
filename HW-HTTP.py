@@ -1,10 +1,7 @@
-
 import requests
 
-subreddits = ['ama', 'aww', 'news', 'worldnews', 'politics', 'todayilearned', 'explainlikeimfive', 'writingprompts',
-              'upliftingnews', 'wholesomememes', 'freecompliments', 'happy', 'financialadvice', 'breadit']
 
-
+# retrieves the data from a subreddit in the JSON format using a get request
 def getRedditStories(subreddit):
     url = f'https://www.reddit.com/r/{subreddit}.json'
     myheaders = {'User-Agent': 'ist256.lesson10.homework:v1.0 (by /u/edjose)'}
@@ -14,6 +11,7 @@ def getRedditStories(subreddit):
     return data
 
 
+# parses through reddit JSON data to retrieve subreddit titles in a list
 def extractTitles(stories):
     titles = ''
     for story in stories['data']['children']:
@@ -21,6 +19,7 @@ def extractTitles(stories):
     return titles
 
 
+# uses the text-processing api given some text to return a sentiment value as a JSON
 def getSentiment(text):
     url = 'http://text-processing.com/api/sentiment/'
     payload = {'text': f'{text}'}
@@ -38,6 +37,4 @@ def main(subreddit):
     print(f"Overall sentiment of subreddit {subreddit} is {sentiment['label']}")
 
 
-main('News')
-
-
+main('python')
